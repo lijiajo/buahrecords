@@ -1,0 +1,91 @@
+HOW TO EDIT THE BUAH SITE
+(this file is just for you. you don't need to upload it to neocities.)
+
+=====================================================
+THE WORKFLOW
+=====================================================
+
+this folder ("cloud Buah") is the master copy. always edit here first.
+
+  1. open the .html file in a text editor
+       - VS Code (free) is the nicest
+       - TextEdit works too, BUT go to Format > Make Plain Text first,
+         or it will break the file
+  2. change the words, save
+  3. double-click the .html file to check it in your browser
+  4. go to neocities.org > dashboard, drag the changed file(s) in.
+     same name = it replaces the old one.
+
+quick fixes straight in the neocities editor are fine too, but then
+copy the same change into this folder, or next time you upload from
+here you'll overwrite it.
+
+the html files have notes in them that look like this:
+  <!-- this is a note -->
+browsers don't show them. they tell you what to copy where.
+
+
+=====================================================
+ADD A NEWS LINE          (file: index.html)
+=====================================================
+
+find "news". copy this, paste it ABOVE the other lines:
+
+  <li><span class="date">11.11.2026</span> what happened</li>
+
+to make some words a link:
+
+  <li><span class="date">11.11.2026</span> new <a href="https://...">video</a> is up</li>
+
+
+=====================================================
+COMING SOON STUFF        (file: index.html)
+=====================================================
+
+find "coming soon". each thing is one line:
+
+  <li><span class="stamp">soon</span> the buah shop</li>
+
+add a line = copy it and change the words.
+it's out = delete the line, and add a news line instead.
+want a different stamp? change the word "soon", e.g. "wip" or "dec"
+
+
+=====================================================
+NEW RELEASE              (3 places)
+=====================================================
+
+1. put the cover in the images folder.
+   name it simply: images/album-name.jpg (no spaces)
+
+2. index.html, "the crate": copy one whole
+     <a class="record" ...> ... </a>
+   block, paste it at the TOP of the crate, change:
+     - the bandcamp link (href="...")
+     - the cover (src="images/....jpg")
+     - BUAH-00?, year, title, artist
+
+3. releases.html: copy one whole
+     <div class="release" ...> ... </div>
+   block, paste it at the top, change the text.
+   no youtube video? delete the <div class="video"> part.
+   has one? the code at the end of the youtube link
+   (watch?v=THIS_PART) goes after /embed/
+
+4. bonus: add a news line.
+
+
+=====================================================
+NEW ARTIST               (file: artists.html)
+=====================================================
+
+copy one whole <div class="artist"> ... </div> block, change it.
+put their photo in images/ and change the src="..." to it.
+
+
+=====================================================
+IF SOMETHING LOOKS BROKEN
+=====================================================
+
+usually a missing  >  or  "  or a tag you opened and didn't close.
+compare with a block that still works. or ask claude :)

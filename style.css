@@ -1,0 +1,352 @@
+/* ============================================
+   buah records — one stylesheet for every page
+   change the colours in :root and the whole site follows
+   ============================================ */
+
+@font-face {
+  font-family: "Civilite";
+  src: url("fonts/1742-French-Civilite.ttf") format("truetype");
+}
+
+:root {
+  --paper: #f6f6f3;     /* page background */
+  --ink:   #3b2f2c;     /* text — same brown as the logo */
+  --melon: #d8323f;     /* watermelon red: links, catalogue numbers */
+  --rind:  #7fae4f;     /* rind green: small accents */
+  --pale:  #e3f0d2;     /* pale rind: highlights */
+  --line:  #d9d6cf;     /* soft lines */
+}
+
+* { box-sizing: border-box; }
+
+html { background-color: var(--paper); min-height: 100%; }
+body { min-height: 100vh; } /* so the paper grain reaches the bottom on short pages */
+
+body {
+  margin: 0;
+  padding: 20px 16px 40px;
+  color: var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  background-color: var(--paper);
+  /* paper grain, drawn by the browser (no image file needed) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .58 0 0 0 0 .62 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+#wrap {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+a { color: var(--melon); }
+a:hover { background: var(--pale); }
+
+img { max-width: 100%; }
+
+/* ---------- header ---------- */
+
+header { text-align: center; }
+
+.logo {
+  display: inline-block;
+  width: 440px;
+  max-width: 92%;
+  margin: 10px 0 0;
+}
+.logo:hover { background: none; }
+.logo img { display: block; width: 100%; }
+
+.tag {
+  margin: 4px 0 0;
+  font-size: 13px;
+  letter-spacing: 1px;
+  opacity: 0.75;
+}
+
+/* ---------- nav (civilite) ---------- */
+
+nav {
+  margin: 18px 0 8px;
+  padding: 6px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  text-align: center;
+  font-family: "Civilite", Georgia, serif;
+  font-size: 27px;
+  line-height: 1.4;
+}
+
+nav a {
+  display: inline-block;
+  margin: 0 12px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform .15s;
+}
+/* little tilt on hover (sadgrl's "rotate link on hover") */
+nav a:hover { transform: rotate(-6deg); background: none; color: var(--melon); }
+nav a.here { color: var(--melon); text-decoration: underline wavy var(--rind) 1px; text-underline-offset: 6px; }
+
+/* ---------- sections ---------- */
+
+h2 {
+  font-family: "Civilite", Georgia, serif;
+  font-weight: normal;
+  font-size: 34px;
+  line-height: 1.1;
+  margin: 40px 0 6px;
+}
+h2 small {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  opacity: 0.6;
+  margin-left: 8px;
+}
+
+h3 {
+  font-family: "Civilite", Georgia, serif;
+  font-weight: normal;
+  font-size: 26px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cat {
+  color: var(--melon);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.tags { font-size: 12px; opacity: 0.7; }
+
+/* ============================================
+   THE CRATE — records that shake, vinyl slides out,
+   click goes to bandcamp
+   ============================================ */
+
+.crate {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 34px 64px;
+  padding: 30px 0 10px;
+}
+
+.record {
+  display: block;
+  width: 190px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.record { position: relative; }
+.record:hover, .record:focus-visible { background: none; z-index: 2; } /* bring the hovered one to the front */
+
+.sleeve-box {
+  position: relative;
+  width: 190px;
+  height: 190px;
+}
+
+/* the vinyl hiding behind the cover */
+.vinyl {
+  position: absolute;
+  top: 5px; left: 5px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--paper) 0 4px, transparent 5px),          /* hole */
+    radial-gradient(circle, var(--melon) 0 30px, #b02531 31px 33px, transparent 34px), /* watermelon label */
+    repeating-radial-gradient(circle, #151515 0 2px, #262626 3px 4px),       /* grooves */
+    #111;
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  transition: transform .45s ease-out;
+}
+/* little seeds on the label */
+.vinyl::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse 2px 3px at 46% 40%, #2a1b18 98%, transparent),
+    radial-gradient(ellipse 2px 3px at 56% 43%, #2a1b18 98%, transparent),
+    radial-gradient(ellipse 2px 3px at 42% 56%, #2a1b18 98%, transparent),
+    radial-gradient(ellipse 2px 3px at 58% 58%, #2a1b18 98%, transparent);
+}
+
+.sleeve {
+  position: absolute;
+  inset: 0;
+  width: 190px; height: 190px;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  background: #fff;
+}
+
+/* hover: cover shakes, vinyl peeks out and spins */
+.record:hover .sleeve,
+.record:focus-visible .sleeve { animation: shake .45s infinite; }
+
+.record:hover .vinyl,
+.record:focus-visible .vinyl {
+  transform: translateX(42%);
+  animation: spin 1.8s linear infinite .45s;
+}
+
+@keyframes shake {
+  0%   { transform: rotate(0deg); }
+  20%  { transform: rotate(-2.5deg) translateX(-2px); }
+  40%  { transform: rotate(2deg) translateX(2px); }
+  60%  { transform: rotate(-1.5deg); }
+  80%  { transform: rotate(1.5deg) translateY(-1px); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes spin {
+  from { transform: translateX(42%) rotate(0deg); }
+  to   { transform: translateX(42%) rotate(360deg); }
+}
+
+.record .label {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.record .label b {
+  display: block;
+  font-family: "Civilite", Georgia, serif;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 1.15;
+  margin: 2px 0;
+}
+
+.hint { text-align: center; font-size: 12px; opacity: .6; margin: 6px 0 0; }
+
+/* ---------- news log ---------- */
+
+.log { list-style: none; padding: 0; margin: 0; }
+.log li {
+  padding: 5px 0;
+  border-bottom: 1px dotted var(--line);
+}
+.log .date { color: var(--melon); margin-right: 10px; }
+
+/* ---------- coming soon list ---------- */
+
+.soon { list-style: none; padding: 0; margin: 0; }
+.soon li { padding: 6px 0; }
+.stamp {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 0 6px;
+  border: 1.5px solid var(--melon);
+  border-radius: 3px;
+  color: var(--melon);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+}
+
+/* ---------- release page entries ---------- */
+
+.release {
+  display: flex;
+  gap: 22px;
+  padding: 22px 0;
+  border-bottom: 1px dashed var(--ink);
+}
+.release:last-child { border-bottom: none; }
+.release > img {
+  width: 200px; height: 200px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.release p { margin: 6px 0; }
+
+.video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-top: 10px;
+  border: 1px solid var(--ink);
+}
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---------- artists ---------- */
+
+.artist {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px dashed var(--ink);
+}
+.artist:last-child { border-bottom: none; }
+.artist > img {
+  width: 130px; height: 130px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+}
+.artist p { margin: 6px 0; }
+
+/* seed bullets (sadgrl's custom list bullets) */
+ul.seeds { list-style: none; padding-left: 4px; }
+ul.seeds li { padding-left: 20px; position: relative; }
+ul.seeds li::before {
+  content: "";
+  position: absolute;
+  left: 3px; top: .55em;
+  width: 6px; height: 9px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: var(--ink);
+}
+
+/* a glitter gif sitting in a little paper frame */
+.postcard {
+  display: block;
+  margin: 30px auto 0;
+  width: 260px;
+  padding: 8px 8px 4px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 2px 3px 0 var(--line);
+  transform: rotate(2deg);
+  text-align: center;
+  font-size: 11px;
+}
+.postcard img { display: block; width: 100%; }
+
+/* ---------- footer ---------- */
+
+footer {
+  margin-top: 50px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink);
+  text-align: center;
+  font-size: 12px;
+}
+footer p { margin: 4px 0; }
+footer .fruit { width: 37px; height: 37px; vertical-align: middle; }
+
+/* ---------- phones ---------- */
+
+@media (max-width: 560px) {
+  nav { font-size: 22px; }
+  nav a { margin: 0 7px; }
+  h2 { font-size: 28px; }
+  .release, .artist { flex-direction: column; }
+  .release > img { width: 100%; height: auto; max-width: 320px; }
+  .crate { gap: 34px; }
+}
+
+/* people who turned off motion in their settings don't get shaken */
+@media (prefers-reduced-motion: reduce) {
+  .record:hover .sleeve, .record:hover .vinyl { animation: none; }
+}

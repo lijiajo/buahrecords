@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Buah Records</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="wrap">
+
+      <header>
+        <a class="logo" href="index.html"><img src="images/logo.png" alt="Buah Records! with a watermelon slice"></a>
+        <p class="tag">buah = fruit</p>
+      </header>
+
+      <nav>
+        <a href="index.html" class="here">home</a>
+        <a href="releases.html">releases</a>
+        <a href="artists.html">artists</a>
+        <a href="about.html">about</a>
+      </nav>
+
+      <!-- ===== THE CRATE =====
+           to add a record: copy one <a class="record"> block,
+           change the bandcamp link, the cover image and the label text. -->
+      <h2>the crate <small>newest first</small></h2>
+
+      <div class="crate">
+
+        <a class="record" href="https://patihi.bandcamp.com/album/dadah-papa-tua" target="_blank">
+          <div class="sleeve-box">
+            <div class="vinyl"></div>
+            <img class="sleeve" src="images/dadah-papa-tua.jpg" alt="cover of Dadah, Papa Tua!">
+          </div>
+          <div class="label">
+            <span class="cat">BUAH-003</span> &middot; 2026
+            <b>Dadah, Papa Tua!</b>
+            Patihi
+          </div>
+        </a>
+
+        <a class="record" href="https://alirzqii.bandcamp.com/album/dan-aku-akan-tetap-di-sini" target="_blank">
+          <div class="sleeve-box">
+            <div class="vinyl"></div>
+            <img class="sleeve" src="images/dan-aku-akan-tetap-di-sini.jpg" alt="cover of Dan aku akan tetap di sini">
+          </div>
+          <div class="label">
+            <span class="cat">BUAH-002</span> &middot; 2026
+            <b>Dan aku akan tetap di sini</b>
+            Ali rzqii
+          </div>
+        </a>
+
+        <a class="record" href="https://patihi.bandcamp.com/album/lentoraku-nasaemo" target="_blank">
+          <div class="sleeve-box">
+            <div class="vinyl"></div>
+            <img class="sleeve" src="images/lentoraku-nasaemo.jpg" alt="cover of Lentoraku Nasaemo">
+          </div>
+          <div class="label">
+            <span class="cat">BUAH-001</span> &middot; 2025
+            <b>Lentoraku Nasaemo</b>
+            Patihi
+          </div>
+        </a>
+
+      </div>
+      <p class="hint">(click a record to go to its bandcamp)</p>
+
+      <h2>coming soon</h2>
+      <!-- ===== COMING SOON =====
+           one <li> per thing. copy a line to add one, delete the line when it's out.
+           when it's out, move it to "news" below.
+           if there's nothing coming, delete the whole <ul> and write: <p>nothing yet, stay tuned</p> -->
+      <ul class="soon">
+        <li><span class="stamp">soon</span> the buah shop</li>
+        <li><span class="stamp">soon</span> patihi's new visuals</li>
+      </ul>
+
+      <h2>news</h2>
+      <!-- ===== NEWS =====
+           newest at the TOP. copy this line, paste it above the others, change the date and words:
+           <li><span class="date">DD.MM.YYYY</span> what happened</li>
+           to link something, wrap the words like this: <a href="releases.html">words</a> -->
+
+      <ul class="log">
+        <li><span class="date">11.11.2026</span> the website is up! still putting things on the shelves</li>
+        <li><span class="date">10.10.2026</span> Patihi's <a href="releases.html#dadah-papa-tua">Dadah, Papa Tua!</a> is out</li>
+        <li><span class="date">14.05.2026</span> Ali rzqii's <a href="releases.html#dan-aku">Dan aku akan tetap di sini</a> is out</li>
+        <li><span class="date">23.05.2025</span> Patihi's <a href="releases.html#lentoraku">Lentoraku Nasaemo</a> is out</li>
+      </ul>
+
+      <h2>listen and watch</h2>
+      <ul class="seeds">
+        <li><a href="https://patihi.bandcamp.com" target="_blank">patihi on bandcamp</a></li>
+        <li><a href="https://alirzqii.bandcamp.com" target="_blank">ali rzqii on bandcamp</a></li>
+        <li><a href="https://www.youtube.com/@buahrecords" target="_blank">buah records on youtube</a> (full albums w/ visuals)</li>
+      </ul>
+
+      <footer>
+        <p>
+          <img class="fruit" src="images/glitter/fruits-small.gif" alt="">
+          buah records, since 2025
+          <img class="fruit" src="images/glitter/fruits-small.gif" alt="">
+        </p>
+        <p>made by hand in html and <a href="https://neocities.org" target="_blank">hosted on neocities</a></p>
+      </footer>
+
+    </div>
+  </body>
+</html>
